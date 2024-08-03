@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+//import liraries
+import React, { Component, useContext } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Geolocation from './src/components/GeoLocation';
+import DriverLocationTracker from './src/components/DriverLocationTracker';
+import Navigation from './src/components/Navigation'
+import { AuthContext } from './src/context/AuthContext'
+import { AuthProvider } from './src/context/AuthContext'
 
-export default function App() {
+
+// create a component 
+const App = () => {
+  // const { userInfo, logout, isLoading } = useContext(AuthContext)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <AuthProvider style={styles.container}>
+      <Text>App</Text>
+      {/* <Geolocation /> */}
+      {/* <DriverLocationTracker driverId={userInfo.driverId} /> */}
+      <Navigation />
+    </AuthProvider>
+  )
+};
 
+// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
   },
 });
+
+//make this component available to the app
+export default App;

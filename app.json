@@ -2,6 +2,7 @@
   "expo": {
     "name": "Driverr",
     "slug": "Driverr",
+    "scheme": "Driverr",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,6 +12,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ]
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -18,7 +27,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions":["android.permission.CAMERA", "android.permission.LOCATION","android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.ACCESS_BACKGROUND_LOCATION"],
+      "usesCleartextTraffic":true
     },
     "web": {
       "favicon": "./assets/favicon.png"
